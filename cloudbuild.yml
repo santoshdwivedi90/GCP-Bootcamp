@@ -21,7 +21,6 @@ steps:
     args: [./trigger.sh]
   - name: "bash"
     script:  npm install -g newman
-    script:  newman run -d example-csv-all-types.csv  CreateUSers.postman_collection.json --global-var "bearertoken=${bearertoken}"
   
  
    
