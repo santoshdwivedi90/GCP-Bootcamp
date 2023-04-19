@@ -19,6 +19,9 @@ steps:
   - name: "gcr.io/cloud-builders/gcloud"
     entrypoint: "bash"
     args: [./trigger.sh]
+  - name: node
+    entrypoint: npm
+    args: ['install']
   - name: 'bash'
     script: |
      npm install -g newman
