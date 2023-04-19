@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "https://us-central1-generera-demo.cloudfunctions.net/genereraDemo",
+			"name": "https://us-central1-ingka-native-ikealabs-dev.cloudfunctions.net/Test-CloudFunctions",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -20,15 +20,15 @@
 					}
 				},
 				"url": {
-					"raw": "https://us-central1-generera-demo.cloudfunctions.net/genereraDemo",
+					"raw": "https://us-central1-ingka-native-ikealabs-dev.cloudfunctions.net/Test-CloudFunctions",
 					"protocol": "https",
 					"host": [
-						"us-central1-generera-demo",
+						"us-central1-ingka-native-ikealabs-dev",
 						"cloudfunctions",
 						"net"
 					],
 					"path": [
-						"genereraDemo"
+						"Test-CloudFunctions"
 					]
 				}
 			},
