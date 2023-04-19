@@ -18,9 +18,12 @@ steps:
   - name: "gcr.io/cloud-builders/gcloud"
     entrypoint: "bash"
     args: [./trigger.sh]
+  - name: "gcr.io/cloud-builders/gcloud"
+    entrypoint: "bash"
+    args: [bearertoken=$(gcloud auth print-access-token)]
   - name: "gcr.io/cloud-builders/yarn"
     entrypoint: "bash"
-    args: [bearertoken=$(gcloud auth print-access-token),./triggertest.sh]
+    args: [bearertoken,./triggertest.sh]
   
  
    
