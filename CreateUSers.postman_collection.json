@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "7f771021-92c3-4c2d-ab84-51d171569ed1",
+		"_postman_id": "51a85acd-f685-477f-abd1-7d933694d333",
 		"name": "CreateUSers",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -8,6 +8,16 @@
 		{
 			"name": "https://us-central1-ingka-native-ikealabs-dev.cloudfunctions.net/Test-CloudFunctions",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearertoken}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -20,8 +30,8 @@
 					}
 				},
 				"url": {
-					"raw": "https://us-central1-ingka-native-ikealabs-dev.cloudfunctions.net/Test-CloudFunctions",
-					"protocol": "https",
+					"raw": "http://us-central1-ingka-native-ikealabs-dev.cloudfunctions.net/Test-CloudFunctions",
+					"protocol": "http",
 					"host": [
 						"us-central1-ingka-native-ikealabs-dev",
 						"cloudfunctions",
