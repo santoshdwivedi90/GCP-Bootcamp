@@ -7,7 +7,7 @@ steps:
       [
         "functions",
         "deploy",
-        "genereraDemo",
+        "Test-CloudFunctions",
         "--trigger-http",
         "--runtime",
         "java11",
