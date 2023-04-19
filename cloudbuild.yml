@@ -1,0 +1,27 @@
+steps:
+  - name: "gcr.io/cloud-builders/mvn"
+    args: ["clean", "verify"]
+    dir: "/workspace/"
+  - name: "gcr.io/cloud-builders/gcloud"
+    args:
+      [
+        "functions",
+        "deploy",
+        "genereraDemo",
+        "--trigger-http",
+        "--runtime",
+        "java11",
+        "--entry-point",
+        "com.functions.HelloWorld",
+      ]
+    dir: "/workspace/"
+  - name: "gcr.io/cloud-builders/gcloud"
+    entrypoint: "bash"
+    args: [./trigger.sh]
+  - name: "gcr.io/cloud-builders/yarn"
+    entrypoint: "bash"
+    args: [./triggertest.sh]
+  
+ 
+   
+ 
