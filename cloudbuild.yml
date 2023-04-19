@@ -20,7 +20,7 @@ steps:
     args: [./trigger.sh]
   - name: "gcr.io/cloud-builders/yarn"
     entrypoint: "bash"
-    args: [./triggertest.sh]
+    args: [./triggertest.sh, bearertoken=$(gcloud auth print-identity-token)]
   
  
    
