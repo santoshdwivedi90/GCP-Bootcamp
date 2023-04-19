@@ -9,6 +9,7 @@ steps:
         "deploy",
         "Test-CloudFunctions",
         "--trigger-http",
+        "--allow-unauthenticated",
         "--runtime",
         "java11",
         "--entry-point",
@@ -20,10 +21,10 @@ steps:
     args: [./trigger.sh]
   - name: "gcr.io/cloud-builders/gcloud"
     entrypoint: "bash"
-    args: [bearertoken=$(gcloud auth print-access-token)]
+    args: bearertoken=$(gcloud auth print-access-token)
   - name: "gcr.io/cloud-builders/yarn"
     entrypoint: "bash"
-    args: [bearertoken,./triggertest.sh]
+    args: [./triggertest.sh]
   
  
    
