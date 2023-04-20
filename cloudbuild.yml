@@ -3,4 +3,8 @@ steps:
    entrypoint: "bash"
    args:
     - "-c"
-    - echo $(gcloud auth print-identity-token --account="my account")
+    - |
+        curl -X POST -H "content-type: application/json" \
+        -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+        -d '{"audience": "YOUR AUDIENCE"}' \
+         "https://iamcredentials.googleapis.com/v1/projects/-/serviceAccounts/513874589078@cloudbuild.gserviceaccount.com:generateIdToken"
