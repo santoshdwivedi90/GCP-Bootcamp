@@ -21,8 +21,4 @@ steps:
     args: [./trigger.sh]
   - name: "gcr.io/cloud-builders/yarn"
     entrypoint: "bash"
-    args: [npm install -g newman, newman run -d example-csv-all-types.csv  CreateUSers.postman_collection.json]
-  
- 
-   
- 
+    args: [./triggertest.sh]
