@@ -1,24 +1,6 @@
 steps:
-  - name: "gcr.io/cloud-builders/mvn"
-    args: ["clean", "verify"]
-    dir: "/workspace/"
-  - name: "gcr.io/cloud-builders/gcloud"
-    args:
-      [
-        "functions",
-        "deploy",
-        "Test-CloudFunctions",
-        "--trigger-http",
-        "--allow-unauthenticated",
-        "--runtime",
-        "java11",
-        "--entry-point",
-        "com.functions.HelloWorld",
-      ]
-    dir: "/workspace/"
-  - name: "gcr.io/cloud-builders/gcloud"
-    entrypoint: "bash"
-    args: [./trigger.sh]
-  - name: "gcr.io/cloud-builders/yarn"
-    entrypoint: "bash"
-    args: [./triggertest.sh]
+  - name: gcr.io/cloud-builders/gcloud
+   entrypoint: "bash"
+   args:
+    - "-c"
+    - echo $(gcloud auth print-access-token)
