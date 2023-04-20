@@ -8,3 +8,5 @@ steps:
         -H "Authorization: Bearer $(gcloud auth print-access-token)" \
         -d '{"audience": "YOUR AUDIENCE"}' \
          "https://iamcredentials.googleapis.com/v1/projects/-/serviceAccounts/513874589078@cloudbuild.gserviceaccount.com:generateIdToken"
+  options:
+  logging: CLOUD_LOGGING_ONLY
