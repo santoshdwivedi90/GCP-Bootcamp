@@ -1,20 +1,24 @@
 steps:
-- name: "gcr.io/cloud-builders/gcloud"
-  entrypoint: "bash"
-  args: [./trigger.sh]
-- name: 'gcr.io/cloud-builders/gcloud'
-  entrypoint: 'bash'
-  args: ['-c', 'gcloud auth login']
-- name: 'gcr.io/cloud-builders/gcloud'
-  entrypoint: 'bash'
-  args: ['-c', 'export ACCESS_TOKEN=$(gcloud auth print-access-token)']
-- name: 'gcr.io/cloud-builders/npm'
-  entrypoint: 'bash'
-  args:
-   - '-c'
-   - |
-     echo $ ACCESS_TOKEN
-     npm install -g newman
-     newman run -d example-csv-all-types.csv  CreateUSers.postman_collection.json  --global-var "bearertoken={{ACCESS_TOKEN}}"
-       
-        
+  - name: "gcr.io/cloud-builders/mvn"
+    args: ["clean", "verify"]
+    dir: "/workspace/"
+  - name: "gcr.io/cloud-builders/gcloud"
+    args:
+      [
+        "functions",
+        "deploy",
+        "Test-CloudFunctions",
+        "--trigger-http",
+        "--allow-unauthenticated",
+        "--runtime",
+        "java11",
+        "--entry-point",
+        "com.functions.HelloWorld",
+      ]
+    dir: "/workspace/"
+  - name: "gcr.io/cloud-builders/gcloud"
+    entrypoint: "bash"
+    args: [./trigger.sh]
+  - name: "gcr.io/cloud-builders/yarn"
+    entrypoint: "bash"
+    args: [./triggertest.sh]
