@@ -4,6 +4,9 @@ steps:
   args: [./trigger.sh]
 - name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash'
+  args: ['-c', 'gcloud auth login']
+- name: 'gcr.io/cloud-builders/gcloud'
+  entrypoint: 'bash'
   args: ['-c', 'export ACCESS_TOKEN=$(gcloud auth print-access-token)']
 - name: 'gcr.io/cloud-builders/npm'
   entrypoint: 'bash'
