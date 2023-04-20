@@ -1,10 +1,10 @@
 {
 	"id": "b9a941c1-91fe-407a-9fdf-97c201026551",
-	"name": "genereraDemo",
+	"name": "Test-CloudFunctions",
 	"values": [
 		{
 			"key": "url",
-			"value": "https://us-central1-generera-demo.cloudfunctions.net/genereraDemo",
+			"value": "https://us-central1-ingka-native-ikealabs-dev.cloudfunctions.net/Test-CloudFunctions",
 			"enabled": true
 		}
 	],
