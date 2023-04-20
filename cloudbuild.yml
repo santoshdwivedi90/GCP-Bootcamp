@@ -4,9 +4,5 @@ steps:
    args:
     - "-c"
     - |
-        curl -X POST -H "content-type: application/json" \
-        -H "Authorization: Bearer $(gcloud auth print-access-token)" \
-        -d '{"audience": "YOUR AUDIENCE"}' \
-         "https://iamcredentials.googleapis.com/v1/projects/-/serviceAccounts/513874589078@cloudbuild.gserviceaccount.com:generateIdToken"
-        # Use Cloud Build Service Account
-        # service_account_email=$(gcloud config get-value account)
+        - echo $(gcloud auth print-identity-token --impersonate-service-account="my-account@example.iam.gserviceaccount.com" --audiences="https://service-hash-uc.a.run.app")" \
+        
