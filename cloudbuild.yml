@@ -4,5 +4,5 @@ steps:
    args:
     - "-c"
     - |
-       echo $(gcloud auth print-identity-token --impersonate-service-account="my-account@example.iam.gserviceaccount.com" --audiences="https://service-hash-uc.a.run.app")" \
+       echo $(gcloud auth print-identity-token --impersonate-service-account="my-account@example.iam.gserviceaccount.com" --audiences="https://service-hash-uc.a.run.app")" 
         
