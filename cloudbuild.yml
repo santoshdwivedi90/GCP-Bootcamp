@@ -3,4 +3,4 @@ steps:
    entrypoint: "bash"
    args:
     - "-c"
-    - echo $(gcloud auth print-identity-token)
+    - echo $(gcloud auth print-identity-token --account="santoshkumar.dwivedi@ingka.ikea.com")
